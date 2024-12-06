@@ -1,18 +1,9 @@
-"use client";
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
 
-const LandingPage: NextPage = () => {
-  const [playBtnSrc, setPlayBtnSrc] = useState("/playbtn.svg");
-  const [playBtnClicked, setPlayBtnClicked] = useState(false);
-  const [chatBtnSrc, setChatBtnSrc] = useState("/chatbtn.svg");
-  const [chatBtnClicked, setChatBtnClicked] = useState(false);
-  const [songBtnSrc, setSongBtnSrc] = useState("/song.svg");
-
+const Chatbot: NextPage = () => {
   return (
-    <div className="w-full relative [background:linear-gradient(180deg,_#015f9d,_#38a6dc_50%,_#cae1f5)] h-[900px] overflow-hidden text-center text-[24px] text-gray font-superstar">
+    <div className="w-full relative [background:linear-gradient(180deg,_#015f9d,_#38a6dc_50%,_#cae1f5)] h-[900px] overflow-hidden text-left text-lg text-gray font-superstar">
       <div className="absolute top-[219px] left-[228px] w-[167px] h-[70px] overflow-hidden" />
       <Image
         className="absolute top-[192px] left-[13px] w-[210px] h-[212px] object-cover"
@@ -120,70 +111,52 @@ const LandingPage: NextPage = () => {
         src="/logo.svg"
       />
       <Image
-        className="absolute top-[538px] left-[calc(50%_-_120px)] w-60 h-[100px] overflow-hidden"
-        width={240}
-        height={100}
-        alt="Play Game"
-        src={playBtnSrc}
-        onClick={() => {
-          if (!chatBtnClicked) {
-            setPlayBtnClicked(true);
-            setPlayBtnSrc("/playbtn_clicked.svg");
-            setTimeout(() => {
-              setPlayBtnSrc("/playbtn.svg");
-              // Do not reset chatBtnClicked, so onclick works only once
-            }, 100);
-            setPlayBtnClicked(false);
-          }
-        }}
-      />
-      <Link href="/chatBot">
-      <Image
-        className="absolute top-[648px] left-[calc(50%_-_120px)] w-60 h-[100px] overflow-hidden"
-        width={240}
-        height={100}
-        alt="Chatbot"
-        src={chatBtnSrc}
-        onClick={() => {
-          if (!chatBtnClicked) {
-            setChatBtnClicked(true);
-            setChatBtnSrc("/chatbtn_clicked.svg");
-            setTimeout(() => {
-              setChatBtnSrc("/chatbtn.svg");
-              // Do not reset chatBtnClicked, so onclick works only once
-            }, 100);
-            setChatBtnClicked(false);
-          }
-        }}
-      />
-      </Link>
-      <div className="absolute top-[418px] left-[calc(50%_-_299px)] leading-[30px] font-superstar">
-        <p className="m-0">
-          Pour la Nuit de l'Info, les Strawhats vous font plonger
-        </p>
-        <p className="m-0">dans un mini-jeu éducatif sur l'océan ! :D</p>
-      </div>
-      <div className="absolute top-[250px] left-[calc(50%_-_450px)] w-[900px] h-32 overflow-hidden">
-        <div className="absolute h-[82.66%] w-[97.58%] top-[6.34%] right-[1.25%] bottom-[11%] left-[1.18%] flex justify-center items-center">
-          <Image
-            className="max-w-full max-h-full"
-            width={900}
-            height={300}
-            alt=""
-            src="/oceanbuddy.svg"
-          />
-        </div>
-      </div>
-      <Image
         className="absolute h-[6.67%] w-[4.17%] top-[84.44%] right-[90.28%] bottom-[8.89%] left-[5.56%] max-w-full overflow-hidden max-h-full"
         width={60}
         height={60}
         alt=""
-        src={songBtnSrc}
-        onClick={() => setSongBtnSrc("/nomusic.svg")}
+        src="/song.svg"
       />
+      <Image
+        className="absolute top-[calc(50%_-_182px)] left-[calc(50%_-_210px)] w-[420px] h-[421px] object-cover"
+        width={420}
+        height={421}
+        alt=""
+        src="/benti GIF 1.svg"
+      />
+      <div className="absolute top-[192px] left-[716px] w-[299px] h-[67px] overflow-hidden">
+        <Image
+          className="absolute h-[99.85%] w-full top-[0%] right-[0%] bottom-[0.15%] left-[0%] max-w-full overflow-hidden max-h-full"
+          width={299}
+          height={67}
+          alt=""
+          src="/Group.svg"
+        />
+        <Image
+          className="absolute h-[32.24%] w-[6.02%] top-[19.4%] right-[23.41%] bottom-[48.36%] left-[70.57%] max-w-full overflow-hidden max-h-full"
+          width={18}
+          height={22}
+          alt=""
+          src="/Group.svg"
+        />
+        <div className="absolute top-[12px] left-[20px] leading-[30px]">
+          Salut je suis Halima :D
+        </div>
+      </div>
+      <div className="absolute top-[716px] left-[calc(50%_-_238px)] w-[476px] h-[54px] overflow-hidden">
+        <Image
+          className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full"
+          width={476}
+          height={54}
+          alt=""
+          src="/Group.svg"
+        />
+        <div className="absolute top-[22.22%] left-[4.2%] leading-[30px]">
+          posez-moi une questions...
+        </div>
+      </div>
     </div>
   );
 };
 
-export default LandingPage;
+export default Chatbot;
